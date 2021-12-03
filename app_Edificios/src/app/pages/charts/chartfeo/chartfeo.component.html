@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title style="font-size:25px; color:black">Grafico</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button>
+        <ion-icon name="arrow-back" style="font-size:40px; color:black"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="secondary">
+      <ion-button *ngIf='this.auth.isLoggedIn' (click)="this.auth.logOut()">
+        <ion-icon name="log-out-outline" style="font-size:40px; color:black"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style='--background:#544d4d'>
+  <div style='height:50%;width:100%;'>
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+  <ion-card id='card' style='display:none;'>
+    <ion-card-content>
+      <img src='' alt="" height="100%" width="100%" id='imagen'>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,84 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding class="bg-image">
+  <div class="centered" align="center">
+    <div class="datos">
+      <ion-title style="color: antiquewhite; text-shadow: -1px 9px 10px rgba(210,208,208,0.69);">
+        <h1 style="font-size: 40px;">Bienvenido!!!</h1> 
+         <br> Tú Eres...
+      </ion-title>
+
+      <br>
+      <br>
+      
+      <ion-grid>
+        <ion-row text-center>
+
+          <ion-col col-4>
+            <button type="button" id="botonUsuario1" class="botonUsuario1" (click)="completar1()">😎</button>
+          </ion-col>
+
+          <ion-col col-4>            
+              <button type="button" id="botonUsuario2" class="botonUsuario2" (click)="completar2()">🐶</button>            
+          </ion-col>
+
+          <ion-col col-4>
+            <button type="button" id="botonUsuario3" class="botonUsuario3" (click)="completar3()">😺</button>            
+          </ion-col>
+
+        </ion-row>
+
+        <br><br>
+
+        <ion-row>
+
+          <ion-col col-2></ion-col>
+
+          <ion-col col-3>
+            <button type="button" id="botonUsuario4" class="botonUsuario4"  (click)="completar4()">🐸</button>
+          </ion-col>
+
+          <ion-col col-2></ion-col>
+
+          <ion-col col-3>
+            <button type="button" id="botonUsuario5" class="botonUsuario5" (click)="completar5()">🐷</button>
+          </ion-col>
+
+          <ion-col col-2></ion-col>
+
+        </ion-row>
+
+      </ion-grid>
+
+        <br><br><br>
+
+    </div>
+    <ion-item>
+      <ion-label>
+         Correo:
+      </ion-label>
+      <br>
+      <ion-input type="text" [(ngModel)]="usuarix.correo" placeholder="ejemplo@gmail.com"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Contraseña:
+      </ion-label>
+      <ion-input type="password" [(ngModel)]="usuarix.contrasenia" placeholder="*****"></ion-input>
+    </ion-item>
+    <br>
+    <div *ngIf="mensajeError" class="error" style="color: rgb(174, 6, 6);">
+      {{mensajeError}}
+      <br>
+    </div>
+
+    <div class="loadingContainerLogin" id="loadingContainerLogin" *ngIf="spinner">
+      <div class="loadingLogin"  >
+        <img src="../../../assets/img/logoEmpresa.png">
+      </div>
+    </div>
+    
+  </div> 
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <b  style="font-size:30px;">Foto</b>
+    <ion-buttons slot="primary">
+      <ion-button *ngIf='this.auth.isLoggedIn' (click)="this.auth.logOut()">
+        <ion-icon name="log-out-outline" style="font-size:40px; color: black;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner *ngIf='this.auth.loading' name="dots" style='display:block;margin:auto;margin-top:5px'></ion-spinner>
+
+  <div style='height:50%; margin-top:0;position: relative;'>
+    <ion-button style="border-radius: 10%;" class='lindo'  [routerLink]="['/cosas-lindas']">
+      <div style='background-color: #4c344d;'>
+        <label style="color: white;
+        font-weight: 700;
+        font-size:30px;
+        padding: 10px;">Cosas lindas</label>
+      </div>
+    </ion-button>
+  </div>
+
+  <div style='height:50%'>
+    <ion-button class='feo' [routerLink]="['/cosas-feas']" style="border-radius: 10%;">
+      <div style='background-color: #4c344d;font-size:45px;'>
+        <label style="color: white;
+        font-weight: 700;
+        font-size:30px;
+        padding: 10px;">Cosas Feas</label>
+        </div>
+    </ion-button>
+  </div>
+
+</ion-content>

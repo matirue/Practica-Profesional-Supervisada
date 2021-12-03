@@ -1,0 +1,68 @@
+<ion-content fullscreen class="fondo">
+  <div class="form-login">
+    <br>    
+    <h1 class="text-center display-1 fw-bold text-danger">Administrador de Usuarios!</h1>  
+    <br>
+      <form [formGroup]="loginForm" novalidate (ngSubmit)="clickLogin()">    
+        
+        <div class="form-floating">
+          <input type="email" class="form-control " id="floatingInput" placeholder="name@example.com" formControlName="email" 
+          [(ngModel)]="loginData.email">
+          <label for="floatingInput">Correo electrónico</label>
+        </div>
+        <div class="error-input-message" *ngIf="getEmailControl().invalid && getEmailControl().touched">
+          <small class="ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.required">Campo obligatorio</small>
+          <small class="ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.email">Formato incorrecto</small>
+        </div>
+        <br>
+
+        <div class="form-floating">
+          <input type="password" class="form-control " id="floatingInput2" placeholder="name@example.com" formControlName="pass" 
+          [(ngModel)]="loginData.pass">
+          <label for="floatingInput2">Contraseña</label>
+        </div>
+        <div class="error-input-message" *ngIf="getPassControl().invalid && getPassControl().touched">
+          <small class="ion-padding-start ion-padding-end" *ngIf="getPassControl().errors.required">Campo obligatorio</small>
+          <small class="ion-padding-start ion-padding-end" *ngIf="getPassControl().errors.minlength">Mínimo 6 caracteres</small>          
+        </div>     
+        <br>
+        <br>
+        <!-- Ingresar -->
+        <ion-button type="submit" expand="block" class="btn-login" color="danger" [disabled]="loginForm.invalid">Ingresar</ion-button>
+        <br>
+        <!-- Usuarios -->
+        <div class="div-users">
+          <div class="form-check">
+            <input class="form-check-input" (change)="fillLogin(0)" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Administrador
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" (change)="fillLogin(1)" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Invitado
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" (change)="fillLogin(2)" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Usuario
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" (change)="fillLogin(3)" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Anónimo
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" (change)="fillLogin(4)" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Tester
+            </label>
+          </div>
+        </div>  
+      </form>                                    
+  </div>
+</ion-content>

@@ -1,0 +1,58 @@
+.fondo{
+    background: rgb(227,64,64);
+    background: radial-gradient(circle,
+                            rgba(233,170,59,1) 17%,
+                             rgba(204,212,74,1) 40%,
+                              rgba(116,204,114,1) 61%,
+                               rgba(83,113,223,1) 78%,
+                               rgba(227,64,64,1) 100%);
+    height: 100%;
+    // background-image: url("../../../assets/img/fondoGranja.jpg");
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // width: 100vw;
+    // height: 100vh;
+    // display: flex;
+    // align-items: center;
+    // text-align: center;
+    // justify-content: center;
+  }
+
+.animales {
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); 
+    padding-left: 10%;
+    padding-top: 10%;
+  }
+
+  .loadingContainerLogin{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(18, 160, 46, 0.015);
+    z-index: 299;
+  }
+  
+  .loadingLogin{
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 300;
+    animation: girar 2s linear infinite;
+    background-color: rgb(18, 160, 47);
+    border-radius: 100px;
+  }
+  @keyframes girar{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(-360deg);}
+  }
+

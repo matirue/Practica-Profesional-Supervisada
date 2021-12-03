@@ -1,0 +1,43 @@
+<ion-content fullscreen  id="fondo">
+
+  <div  id="fondo">
+    <ion-title class="ion-text-center " >
+      
+      <h1 class="ion-text-center" id="titulo">
+        Escanear QR
+        <a class="btn-logout" (click)="clickLogout()"><ion-icon name="power-outline"></ion-icon></a>
+      </h1>
+    </ion-title>
+  
+    
+
+  <ionGrid>
+
+    <ionRow class="ion-align-items-center">
+      <ionCol>
+        <ion-item color="dark" class="credito ion-padding-start ion-padding-end ion-padding-bootom">              
+            <div class="ion-text-center">              
+              <h1 class="ion-padding-start ion-padding-end ion-padding-bootom">$ {{creditoAcumulado}}</h1>
+            </div>            
+        </ion-item>                  
+      </ionCol>
+    </ionRow>
+    <br>
+    <ionRow>
+      <ionCol >
+        <p class="ion-padding-start ion-padding-end" > 
+          <ion-button class="col-btn" type="ion-button" expand="block" color="warning" (click)="clickCargar()" >Cargar</ion-button>
+        </p>          
+      </ionCol>
+    </ionRow>
+    
+    <ionRow>
+      <ionCol color="danger" class="ion-padding-start ion-padding-end ion-padding-top">
+        <ion-button class="btn-limpiar" expand="block" color="danger" (click)="clickLimpiar()">Limpiar crédito</ion-button>        
+      </ionCol>
+    </ionRow>
+
+  </ionGrid>     
+  </div>
+       
+</ion-content>

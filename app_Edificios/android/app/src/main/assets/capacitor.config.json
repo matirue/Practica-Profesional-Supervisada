@@ -1,0 +1,13 @@
+{
+	"appId": "ppsFF.relevamiento.visual",
+	"appName": "Relevamiento Visual",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 5000,
+			"launchAutoHide": false,
+			"backgroundColor": "#633DAD"
+		}
+	}
+}

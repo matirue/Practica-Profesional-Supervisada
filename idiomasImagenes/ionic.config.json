@@ -1,0 +1,8 @@
+{
+  "name": "app_idiomasImagenes",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

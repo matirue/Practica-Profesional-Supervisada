@@ -1,0 +1,89 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-title>animals</ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+
+  <!-- <div class="fondo">
+    <div class="colores">
+      <ion-grid>
+        <ion-row size="7">
+          <ion-col size="6" *ngFor="let color of colores">
+            <img (click)="reproducirSonido(color)" [src]="color.imagen" width="90%">
+          </ion-col>
+        </ion-row>     
+      </ion-grid>
+    </div>
+  </div> -->
+
+  <div class="fondo">
+    <div class="colores">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-lg="4" size-md="4" size-sm="4"
+          *ngFor="let color of colores">
+            <img (click)="reproducirSonido(color)" [src]="color.imagen" width="90%">
+          </ion-col>
+        </ion-row>     
+      </ion-grid>
+    </div>
+  </div>
+
+  <!-- <ion-grid >
+    <ion-row>
+      <ion-col size="6" size-lg="3" size-md="3" size-sm="3"
+      *ngFor="let color of colores">
+          <img (click)="reproducirSonido(color)" [src]="color.imagen" width="90%">
+      </ion-col>
+    </ion-row>       
+  </ion-grid> -->
+
+  
+
+  <div class="loadingContainerLogin" id="loadingContainerLogin" *ngIf="spinner">
+    <div class="loadingLogin"  >
+      <img src="../../../assets/img/logoEmpresa.png">
+    </div>
+  </div>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+      <img src="{{bandera}}">
+    </ion-fab-button>
+    <ion-fab-list side="start">      
+      <ion-fab-button color="dark" (click)="cambiarIdioma1()">
+        <img src="../../../assets/img/fab/brasil.png">
+      </ion-fab-button>      
+      <ion-fab-button color="dark" (click)="cambiarIdioma3()">
+        <img src="../../../assets/img/fab/ingles-png.png">
+      </ion-fab-button>
+      <ion-fab-button color="dark" (click)="cambiarIdioma2()">
+        <img src="../../../assets/img/fab/argentina.png">
+      </ion-fab-button>
+
+    </ion-fab-list>
+
+  </ion-fab>
+
+  <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon md="caret-forward" ios="chevron-forward-circle-outline"></ion-icon>
+      <img src="{{juego}}">
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button color="dark">
+        <img src="../../../assets/img/fab/animales.png" (click)="moverA('/animals')">
+      </ion-fab-button>
+      <ion-fab-button color="dark">
+        <img src="../../../assets/img/fab/colores.png" (click)="moverA('/colores')">
+      </ion-fab-button>
+      <ion-fab-button color="dark">
+        <img src="../../../assets/img/fab/numeros.png" (click)="moverA('/numeros')">
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,113 @@
+<ion-content fullscreen class="fondo">
+  <div class="">
+    <br>    
+    <h2 class="text-center display-1 fw-bold text-danger">Control de Gastos</h2>
+    
+      <form [formGroup]="loginForm" novalidate (ngSubmit)="clickLogin()">    
+        <br>
+        <br>
+        <!-- Email -->
+        <ion-item class="" color="danger">
+          <ion-label position="stacked" class="miLabel">Correo</ion-label>
+          <ion-input 
+            type="email" 
+            placeholder="nombre@ejemplo.com" 
+            formControlName="email" 
+            [(ngModel)]="loginData.email">
+          </ion-input>
+        </ion-item>
+        <div class="error-input-message" *ngIf="getEmailControl().invalid && getEmailControl().touched">
+          <small class="ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.required">Campo obligatorio</small>
+          <small class="ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.email">Formato incorrecto</small>
+        </div>
+        <br>
+
+        <!-- Pass -->
+        <ion-item class="" color="danger">
+          <ion-label position="stacked" class="miLabel">Contraseña</ion-label>
+          <ion-input 
+            type="password" 
+            placeholder="******"
+            formControlName="pass" 
+            [(ngModel)]="loginData.pass">
+          </ion-input>
+        </ion-item>
+        <div class="error-input-message" *ngIf="getPassControl().invalid && getPassControl().touched">
+          <small class="ion-padding-start ion-padding-end" *ngIf="getPassControl().errors.required">Campo obligatorio</small>
+          <small class="ion-padding-start ion-padding-end" *ngIf="getPassControl().errors.minlength">Mínimo 6 caracteres</small>          
+        </div>     
+        <br>
+        <br>
+
+        <!-- Ingresar -->
+        <ion-button type="submit" expand="full" class="btn-login" color="warning" [disabled]="loginForm.invalid">Ingresar</ion-button>
+        <br>
+
+        <ion-fab horizontal="end" vertical="bottom" >
+
+          <ion-fab-button color="danger">
+            <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+          </ion-fab-button>   
+      
+          <ion-fab-list side="start" >          
+              <ion-fab-button color="danger" (click)="selectChip(0)" value="admin@admin.com">
+                 <img src="../../../assets/user/admin.png" >
+              </ion-fab-button>      
+    
+            <ion-fab-button color="danger" (click)="selectChip(1)" value="invitado@invitado.com">
+              <img src="../../../assets/user/invitado.png" >
+              
+            </ion-fab-button>
+    
+            <ion-fab-button color="danger"  (click)="selectChip(2)" value="usuario@usuario.com">
+              <img src="../../../assets/user/user.png" >
+            </ion-fab-button>
+    
+            <ion-fab-button color="danger" (click)="selectChip(3)" value="anonimo@anonimo.com">
+              <img src="../../../assets/user/anonimo.png" >
+            </ion-fab-button>
+    
+            <ion-fab-button color="danger"  (click)="selectChip(4)" value="tester@tester.com">
+              <img src="../../../assets/user/test.png" >
+            </ion-fab-button>
+      
+          </ion-fab-list>
+      
+        </ion-fab>
+   
+        <!-- <ion-list>
+          <p class="text-center" color="dark">
+            <ion-chip outline color="primary" [disabled]="chipsDisabled[0]" (click)="selectChip(0)">
+              <ion-icon name="documents-outline"></ion-icon>
+              <ion-label>Administrador</ion-label>          
+            </ion-chip>
+          </p>
+          <p class="text-center">
+            <ion-chip outline color="secondary" [disabled]="chipsDisabled[1]" (click)="selectChip(1)">
+              <ion-icon name="shirt-outline"></ion-icon>
+              <ion-label>Invitado</ion-label>          
+            </ion-chip>
+          </p>
+          <p class="text-center">
+            <ion-chip outline color="tertiary" [disabled]="chipsDisabled[2]" (click)="selectChip(2)">
+              <ion-icon name="restaurant"></ion-icon>
+              <ion-label>Usuario</ion-label>          
+            </ion-chip>
+          </p>
+          <p class="text-center">
+            <ion-chip outline color="warning" [disabled]="chipsDisabled[3]" (click)="selectChip(3)">
+              <ion-icon name="videocam"></ion-icon>
+              <ion-label>Anónimo</ion-label>          
+            </ion-chip>  
+          </p>
+          <p class="text-center">
+            <ion-chip outline color="danger" [disabled]="chipsDisabled[4]" (click)="selectChip(4)">
+              <ion-icon name="videocam"></ion-icon>
+              <ion-label>Tester</ion-label>          
+            </ion-chip> 
+          </p>
+        </ion-list> -->
+      </form> 
+
+  </div>
+</ion-content>

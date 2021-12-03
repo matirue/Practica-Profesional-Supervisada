@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar  color="medium">
+    <ion-buttons slot="start">
+      <ion-back-button>
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-label style="font-size:25px; color:black">Foto Feas</ion-label>
+    
+    <ion-buttons slot="secondary">
+      <ion-button *ngIf='this.auth.isLoggedIn' (click)="this.auth.logOut()">
+        <ion-icon name="log-out-outline" style="font-size:40px; color: black"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="--background:#544d4d">
+  <ion-spinner *ngIf='this.auth.loading' name="dots" style='display:block;margin:auto;margin-top:5px;'></ion-spinner>
+  <div *ngFor='let item of array'>
+    <div *ngIf='item.tipo === "Fea"'>
+      <ion-card>
+
+        <ion-card-content>
+          <img src={{item.url}} alt="">
+        </ion-card-content>
+
+        <ion-card-header>          
+          <ion-grid>
+            <ion-row>              
+              <ion-col  size="7">
+                <ion-card-title>Autor: {{item.user}}</ion-card-title>
+                <ion-card-subtitle>{{item.date}}</ion-card-subtitle>
+              </ion-col>
+    
+              <ion-col  size="5">
+                <ion-item>
+                  <ion-buttons>
+                    <ion-button (click)="this.photo.updateLikes(item)">
+                      <ion-icon name="heart-dislike-outline"></ion-icon>
+                      {{item.likes}}
+                    </ion-button>
+                  </ion-buttons>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            
+          </ion-grid>
+        </ion-card-header>   
+      </ion-card>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button style='--background: grey;'>
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button style='--background: grey;' *ngIf='this.auth.isLoggedIn' [routerLink]="['/chart-feo']">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button style='--background: grey;' *ngIf='this.auth.isLoggedIn' [routerLink]="['/mis-fotos-feas']">
+        <ion-icon name="images"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button style='--background: grey;' (click)="this.photo.TakePhoto('Fea')">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

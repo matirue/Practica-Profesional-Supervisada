@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "relevamiento-visual-44740": {
+      "hosting": {
+        "app": [
+          "relevamiento-visual-44740"
+        ]
+      }
+    }
+  }
+}

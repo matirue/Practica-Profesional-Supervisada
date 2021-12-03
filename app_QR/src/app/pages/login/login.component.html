@@ -1,0 +1,69 @@
+<ion-content >
+  
+  <div id="fondo">
+      <ion-title class="ion-text-center ">
+        <h1>Crédito QR</h1>
+      </ion-title>
+
+      <br>  
+      <ion-item id="item" class="ion-padding-start ion-padding-end" fill="outline">
+        <ion-label position= "floating"><ion-icon name="person-outline"></ion-icon> Usuarios</ion-label>
+        <br>
+        <ion-select interface="popover" [(ngModel)]="loginData"> 
+          <ion-select-option *ngFor="let login of loginsMock" [value]="login">{{login.email}}</ion-select-option>
+        </ion-select>
+      </ion-item>     
+      
+      <br><br>
+            
+       <form [formGroup]="loginForm" class="form-login" novalidate (ngSubmit)="clickLogin()" >  
+        
+        
+        
+        <ion-item id="item1" class="ion-padding-start ion-padding-end" fill="outline">
+
+          <ion-label position= "floating">
+            <ion-icon name="mail-outline"></ion-icon> Email
+          </ion-label>
+          
+            <br>
+          
+           <ion-input type="text" formControlName="email" [(ngModel)]="loginData.email" ></ion-input>        
+
+        </ion-item>
+        
+        <div class="error-input-message" *ngIf="getEmailControl().invalid && getEmailControl().touched">
+          <small class="ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.required">Campo obligatorio</small>
+          <small class="ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.email">Formato incorrecto</small>
+        </div>
+        
+        <ion-item id="item2" class="ion-padding-start ion-padding-end" >
+
+          <ion-label position= "floating">
+            <ion-icon  name="lock-closed-outline"></ion-icon> Contraseña
+          </ion-label>
+
+          <br>
+
+          <ion-input  type="password" formControlName="pass" [(ngModel)]="loginData.pass" ></ion-input>
+
+        </ion-item> 
+        
+        <div class="error-input-message" *ngIf="getPassControl().invalid && getPassControl().touched">
+          <small class="ion-padding-start ion-padding-end" *ngIf="getPassControl().errors.required">Campo obligatorio</small>
+          <small class="ion-padding-start ion-padding-end" *ngIf="getPassControl().errors.minlength">Mínimo 6 caracteres</small>          
+        </div>     
+        
+        <br>
+        <p class="ion-padding-start ion-padding-end" > 
+          <ion-button type="submit" expand="block" id="btn" class="btn-login" color= "danger" [disabled]="loginForm.invalid">Ingresar</ion-button>
+        </p>
+        <p class="ion-padding-start ion-padding-end" > 
+          <ion-button type="submit" expand="block" color="secondary" class="btn-register" (click)="goToRegister()">Registrarse</ion-button>
+        </p>
+      </form>
+      
+      
+  </div> 
+
+</ion-content>

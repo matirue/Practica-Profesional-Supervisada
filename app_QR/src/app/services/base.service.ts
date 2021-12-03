@@ -1,0 +1,37 @@
+import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BaseService<T> {
+
+  protected itemsCollection: AngularFirestoreCollection<T>;
+    items: Observable<T[]>;    
+
+    constructor(private afs: AngularFirestore) {
+      
+    }
+
+    protected setCollection(collName:string){
+      this.itemsCollection = this.afs.collection<T>(collName);
+      this.items = this.itemsCollection.valueChanges();
+    }
+  
+    getItemByFilter(campo:string, value:any){
+      return this.itemsCollection.ref.where(campo,'==',value).get();
+    }
+
+    addItem(item: T) {
+      return this.itemsCollection.add(Object.assign({}, item));    
+    }
+
+    setItemWithId(item: T, id:string) {
+      this.itemsCollection.doc(id).set(Object.assign({}, item));    
+    }
+    
+    getItem(id:string){
+      return this.itemsCollection.doc(id).get();
+    }
+}

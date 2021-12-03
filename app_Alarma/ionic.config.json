@@ -1,0 +1,8 @@
+{
+  "name": "app_Alarma",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

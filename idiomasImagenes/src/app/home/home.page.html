@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <!-- <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+  <div class="fondo">
+    <div class="botones">
+      <ion-segment color="secondary" value="tema" [(ngModel)]="cosas" (click)="guardarCosas(cosas)">
+        <ion-segment-button value="animales" >
+          <img src="../../assets/img/fab/animales.png">
+        </ion-segment-button>
+        <ion-segment-button value="colores" >
+          <img src="../../../assets/img/fab/colores.png">
+        </ion-segment-button>
+        <ion-segment-button value="numeros" >
+          <img src="../../../assets/img/fab/numeros.png">
+        </ion-segment-button>
+      </ion-segment>
+      <br>
+      <br>
+      <br>
+      <div class="loadingContainerLogin" id="loadingContainerLogin" *ngIf="spinner">
+        <div class="loadingLogin"  >
+          <img src="../../assets/img/logoEmpresa.png">
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <ion-segment color="secondary" value="idioma" [(ngModel)]="value" (click)="guardarIdioma(value)">
+        <ion-segment-button value="portugues">
+          <img src="../../../assets/img/fab/brasil.png">
+        </ion-segment-button>
+        <ion-segment-button value="español">
+          <img src="../../../assets/img/fab/argentina.png">
+        </ion-segment-button>
+        <ion-segment-button value="ingles">
+          <img src="../../../assets/img/fab/ingles-png.png">
+        </ion-segment-button>
+      </ion-segment>
+    </div>    
+  </div>
+</ion-content>

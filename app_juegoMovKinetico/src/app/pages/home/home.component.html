@@ -1,0 +1,20 @@
+<ion-content fullscreen class="fondo">
+  <div class="icon-back" *ngIf="gameOver">
+    <ion-icon name="chevron-back-outline" size="large" (click)="goToHome()"></ion-icon>
+  </div>
+  <h1 *ngIf="gameOver">Tiempo: {{time}}</h1>
+  
+  <app-timer style="color: rgb(204, 204, 1);" (emitter)="getTime($event)"  *ngIf="!gameOver"></app-timer>
+  
+  <img 
+    #myImg
+    class="img-element rounded-circle" 
+    [style.left.px]="calculatedX"
+    [style.bottom.px]="calculatedY" 
+    [src]="srcImg"
+    *ngIf="!gameOver"
+  >
+
+  <ion-button color="medium" (click)="play()" expand="full" *ngIf="gameOver">Volver a Intentar</ion-button>
+
+</ion-content>

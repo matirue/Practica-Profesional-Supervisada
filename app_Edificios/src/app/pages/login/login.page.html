@@ -1,0 +1,82 @@
+<ion-content padding 
+style="
+         background-image: url('../../../assets/fondo.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+">
+
+<div style='margin-top:5%;'>
+  <ion-col>
+    <ion-row class='ion-justify-content-center'>
+      <h1 style="color: rgb(255, 255, 255);"><b>Relevamiento Visual</b></h1>
+    </ion-row>
+  </ion-col>
+ </div>
+ <div style="background-color: rgba(92, 87, 87, 0.446); border-radius: 5%; padding: 2%;">
+  <ion-col >
+    <ion-label style="font-size: 20px; color: rgb(255, 255, 255);" position="floating"><b>Correo electronico</b></ion-label>
+    <ion-input class='ion-padding font-white' type='text' [(ngModel)]="email" (ngModelChange)='emailChange($event)'
+      style='border:1px solid black;background-color:#87878785;'></ion-input>
+    <div style='color:rgb(175, 38, 38);background-color: #87878785;'>
+      {{this.errorMail}}
+    </div>
+  </ion-col>
+  <ion-col class=''>
+    <ion-label style="font-size: 20px; color: rgb(255, 255, 255);;" position="floating"><b>Contraseña</b></ion-label>
+    <ion-input class='ion-padding font-white' type='password' [(ngModel)]="password"
+      (ngModelChange)='passwordChange($event)' style='border:1px solid black;background-color:#87878785;'></ion-input>
+    <div style='color:rgb(175, 38, 38);background-color: #87878785;'>
+      {{this.errorPassword}}
+    </div>
+  </ion-col>
+  <ion-col>
+    <ion-button fill='solid' class='ion-no-margin' shape='round' expand='block' color='medium' (click)='login()'>
+      {{this.boton}}
+      <ion-spinner *ngIf='this.loading' name="dots"></ion-spinner>
+    </ion-button>
+  </ion-col>
+</div> 
+
+  <ion-fab vertical="center" horizontal="center" slot="fixed" style='margin-top: 35%;'>
+    <ion-fab-button color="dark">
+      <ion-icon name="person"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="login_admin()">
+        <img src="../../../assets/user/admin.png" >
+      </ion-fab-button>
+    </ion-fab-list>
+
+    <ion-fab-list side="bottom" >
+      <ion-fab-button (click)="login_invitado()">
+        <img src="../../../assets/user/invitado.png" >
+      </ion-fab-button>
+      <ion-fab-button (click)="login_anonimo()">
+        <img src="../../../assets/user/anonimo.png" >
+      </ion-fab-button>
+    </ion-fab-list>
+
+    <ion-fab-list side="start" (click)="login_tester()">
+      <ion-fab-button>
+        <img src="../../../assets/user/test.png" >
+      </ion-fab-button>
+    </ion-fab-list>
+
+    <ion-fab-list side="end" (click)="login_usuario()">
+      <ion-fab-button>
+        <img src="../../../assets/user/user.png" >
+      </ion-fab-button>      
+    </ion-fab-list>
+    
+  </ion-fab>
+
+
+</ion-content>

@@ -1,0 +1,114 @@
+
+
+<ion-header>
+  
+    <ion-item color="warning">
+      <ion-label><h2>Gastos del Mes</h2></ion-label>
+      <ion-button (click)="logout()" color="danger">
+        <ion-icon name="exit-outline" slot="end"></ion-icon>
+      </ion-button>
+    </ion-item>
+  
+</ion-header>
+
+
+<ion-content [fullscreen]="true" >
+
+  <ion-list color="tertiary">
+    <!-- Mes actual  -->
+    <ion-list-header color="tertiary">
+      <h3>Seleccionar Mes</h3>
+    </ion-list-header>
+    <ion-item class="item" color="secondary">
+      <ion-icon name="calendar-outline" slot="end"></ion-icon>      
+      <ion-datetime 
+        displayFormat="MMMM YYYY" 
+        [monthNames]="meses" 
+        min="2021-01-01" 
+        max="2021-12-30"        
+        [(ngModel)]="currentMonth.fechaCompleta"                
+        [pickerOptions]="customPickerOptions"
+        
+        ></ion-datetime>
+    </ion-item>
+
+    <!-- Ingreso Mensual  -->
+    <ion-item color="tertiary">
+      <ion-label>Ingreso por mes</ion-label>
+      <ion-icon name="pencil-outline" slot="end" *ngIf="isUpdate" (click)="editIngreso()"></ion-icon>
+    </ion-item>
+    <form [formGroup]="Form">
+      <ion-item class="item" color="secondary">
+        <ion-label position="fixed"><h1>$</h1></ion-label>
+        <ion-icon name="cash-outline" slot="end"></ion-icon>      
+        <ion-input 
+          type="number"
+          [(ngModel)]="currentMonth.ingreso" 
+          formControlName="ingresoCtrl"
+          [disabled]="noEditarIngreso">
+        </ion-input>
+      </ion-item>
+    </form>
+    
+
+    <!-- Umbral de gastos  -->
+    <ion-item color="tertiary">
+      <ion-label>Rango de Gastos: <span style="font-size: 25px;">{{currentMonth.umbral}}</span></ion-label>
+      <ion-icon name="pencil-outline" slot="end" *ngIf="isUpdate" (click)="editUmbral()"></ion-icon>
+    </ion-item>
+    <ion-item class="item" color="secondary">            
+      <ion-range 
+        min="1" 
+        max="100" 
+        step="5" 
+        [disabled]="noEditarUmbral"
+        [(ngModel)]="currentMonth.umbral">
+        <ion-icon size="small" slot="start" name="cart-outline"></ion-icon>
+        <ion-icon size="large" slot="end" name="cart-outline"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-list>  
+
+  <ion-list>
+
+    <!-- Gasto  -->
+    <ion-list-header color="tertiary">
+      <h3>Cargar los Gasto</h3>
+    </ion-list-header>
+    <form [formGroup]="FormGasto">
+      <ion-item class="item" color="secondary">
+        <ion-label position="fixed"><h1>$</h1></ion-label>
+        <ion-icon name="receipt-outline" slot="end"></ion-icon>    
+        <ion-input 
+          [disabled]="Form.invalid || !currentMonth.fechaCompleta"
+          type="number"
+          [(ngModel)]="gasto.gasto" 
+          formControlName="gastoCtrl">
+        </ion-input>
+      </ion-item>
+
+      <!-- Categorías  -->  
+      <ion-item color="tertiary">
+        <ion-label>Categoría</ion-label>
+        <ion-select 
+          placeholder="Seleccione una categoría"
+          formControlName="categoriaCtrl"
+          [(ngModel)]="gasto.categoria"
+          [disabled]="Form.invalid || !currentMonth.fechaCompleta">
+          <ion-select-option value="1">Ropa</ion-select-option>
+          <ion-select-option value="2">Restaurante</ion-select-option>
+          <ion-select-option value="3">Entretenimiento</ion-select-option>
+          <ion-select-option value="4">Alimento</ion-select-option>
+          <ion-select-option value="5">Medicina</ion-select-option>
+          <ion-select-option value="6">Impuestos</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </form>
+
+  </ion-list>
+
+  <ion-button expand="full" (click)="saveClick()" [disabled]="disabledBtn()" color="danger">
+    Guardar
+  </ion-button> 
+
+</ion-content>

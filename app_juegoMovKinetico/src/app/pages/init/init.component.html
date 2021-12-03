@@ -1,0 +1,32 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="warning">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title >Superhéroes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="container h-100">
+
+      <div class="row bg-sala-mv h-50">
+        <ion-avatar class="logo-avatar" *ngFor="let logo of logos_MV; let i = index">
+          <div class="col">
+            <img class="logo" [src]="logo" (click)="seleccionarPersonaje_MV(i)">
+          </div>
+        </ion-avatar> 
+      </div>
+
+      <div class="row bg-sala-dc h-50">
+        <ion-avatar class="logo-avatar" *ngFor="let logo of logos_DC; let i = index">
+          <div class="col">
+            <img class="logo" [src]="logo" (click)="seleccionarPersonaje_DC(i)">
+          </div>
+        </ion-avatar>  
+      </div>
+
+    </div>
+  </ion-content>
+</div>

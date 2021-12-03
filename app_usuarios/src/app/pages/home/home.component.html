@@ -1,0 +1,45 @@
+<ion-content fullscreen class="fondo">
+
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="logout()" color="danger">
+      <ion-icon name="exit-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="currentUser.rol == 1"> 
+    <ion-fab-button (click)="goToRegister()" color="danger">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="container">
+    <h1 class="text-danger text-center" style="font-weight: 800;">Usuarios</h1>
+  </div>
+  
+
+  <div class="container mt-4">
+    <div *ngFor="let usuario of users">
+      <ion-item color="warning" class="user-item" *ngIf="usuario.rol != 1">
+        <ion-avatar slot="start">
+          <img [src]="usuario.img_src">
+        </ion-avatar>
+        <ion-label>
+          <h1>{{usuario.nombre}} {{usuario.apellido}}</h1>
+          <p class="">{{usuario.email}} </p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item color="warning" class="user-item" *ngIf="usuario.rol == 1">
+        <ion-avatar slot="start">
+          <img [src]="usuario.img_src">
+        </ion-avatar>
+        <ion-label>
+          <h1>{{usuario.nombre}} {{usuario.apellido}}</h1>
+          <p class="">{{usuario.email}}</p>
+        </ion-label>
+      </ion-item>
+    </div>
+      
+  </div>
+
+</ion-content>

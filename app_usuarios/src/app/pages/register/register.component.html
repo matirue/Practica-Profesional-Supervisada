@@ -1,0 +1,124 @@
+<ion-content fullscreen class="fondo">
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="escanearClick()" color="danger">
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button color="danger" (click)="goToHome()">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="form-register">
+    <br>
+    <form [formGroup]="registerForm" (ngSubmit)="registrarseClick()"> 
+
+      <!-- foto perfil -->
+      <ion-avatar class="perfil-avatar">
+        <img [src]="personSrc">
+        <ion-fab-button class="camera-perfil-icon" (click)="tomarFotoPerfil()"  color="danger">
+          <ion-icon name="camera-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-avatar>
+
+      <!-- Rol -->
+      <!-- <select class="form-select" aria-label="Rol" formControlName="rol" [(ngModel)]="registerData.usuario.rol">
+        <option value="1">Administrador</option>
+        <option value="2">Invitado</option>
+        <option value="3">Usuario</option>
+        <option value="4">Tester</option>
+      </select>
+      <div class="div-error">
+      </div> -->
+
+    <div class="row">
+      <div class="col">
+        <!-- nombre -->
+        <div class="form-floating">
+          <input type="text" class="form-control " id="floatingInput" placeholder="Luis Emilio" 
+          formControlName="name" 
+          [(ngModel)]="registerData.usuario.nombre">
+          <label for="floatingInput">Nombre</label>
+        </div>
+        <div class="div-error" >
+          <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getNameControl().errors?.required && getNameControl().touched">Campo obligatorio</small>
+          <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getNameControl().errors?.minlength && getNameControl().touched">Mínimo 2 caracteres</small>
+        </div>
+      </div>
+      
+      <div class="col">
+        <!-- apellido -->
+        <div class="form-floating col">
+          <input type="text" class="form-control " id="floatingInput" placeholder="Recabarren" 
+          formControlName="lastName" 
+          [(ngModel)]="registerData.usuario.apellido">
+          <label for="floatingInput">Apellido</label>
+        </div>
+        <div class="div-error">
+          <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getLastNameControl().errors?.required && getLastNameControl().touched">Campo obligatorio</small>
+          <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getLastNameControl().errors?.minlength && getLastNameControl().touched">Mínimo 2 caracteres</small>
+        </div>
+      </div> 
+    </div>
+
+    <!-- dni -->
+    <div class="form-floating">
+      <input type="text" class="form-control " id="floatingInput" placeholder="32323232" 
+      formControlName="dni" 
+      [(ngModel)]="registerData.usuario.dni">
+      <label for="floatingInput">DNI</label>
+    </div>
+    <div class="div-error" >
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getDniControl()?.errors?.required && getDniControl()?.touched">Campo obligatorio</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="(getDniControl()?.errors?.min || getDniControl()?.errors?.max) && getDniControl()?.touched && !getDniControl()?.errors?.pattern">El valor debe estar entre 999999999 y 1000000</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getDniControl()?.errors?.pattern && getDniControl()?.touched">Sólo se permiten números</small>
+    </div>
+
+    <!-- email -->
+    <div class="form-floating">
+      <input type="email" class="form-control " id="floatingInput" placeholder="email@pps.com" 
+      formControlName="email" 
+      [(ngModel)]="registerData.loginData.email">
+      <label for="floatingInput">Correo Electrónico</label>
+    </div>
+    <div class="div-error">
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.required && getEmailControl().touched">Campo obligatorio</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.email && getEmailControl().touched">Formato incorrecto</small>
+    </div>
+
+    <!-- pass 01 -->
+    <div class="form-floating">
+      <input type="password" class="form-control " id="floatingInput2" placeholder="name@example.com" 
+      formControlName="pass1" 
+      [(ngModel)]="registerData.loginData.pass">
+      <label for="floatingInput2">Contraseña</label>
+    </div>
+    <div class="div-error">
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getPass1Control().errors?.required && getPass1Control().touched">Campo obligatorio</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getPass1Control().errors?.minlength && getPass1Control().touched">Mínimo 6 caracteres</small>
+    </div>
+
+    <!-- pass 02 -->
+    <div class="form-floating">
+      <input type="password" class="form-control " id="floatingInput2" placeholder="name@example.com" 
+      formControlName="pass2" 
+      [(ngModel)]="passConfirmation">
+      <label for="floatingInput2">Repita la Contraseña</label>
+    </div>
+    <div class="div-error">
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getPass2Control().errors?.required  && getPass2Control().touched">Campo obligatorio</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getPass2Control().errors?.minlength  && getPass2Control().touched">Mínimo 6 caracteres</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" 
+        *ngIf="!getPass2Control().errors?.minlength && getPass2Control().touched && getPass2Control().errors?.mustMatch">
+        Las contraseñas deben ser las mismas
+      </small>
+    </div>
+
+      <button type="submit" expand="block" color="danger" class="btn-register btn btn-danger" [disabled]="registerForm.invalid">REGISTRAR</button>
+    </form>
+    
+  </div>
+</ion-content>
+

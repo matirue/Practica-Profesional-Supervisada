@@ -1,0 +1,25 @@
+.lindo{
+  --background: url("./../../assets/lindo.jpg")  0 0/100% 100% no-repeat;
+  background-size: cover;
+  height:100%;
+  width: 100%;
+  left:50;
+  color: white;
+  font-weight: 600;
+  font-style: bold;
+}
+
+.feo{
+    --background: url("./../../assets/abandonado1.jpg")  0 0/100% 100% no-repeat;
+    background-size: cover;
+    height:100%;
+    width: 100%;
+    color: white;
+    font-weight: 600;
+    font-style: bold;
+  
+  }
+
+  *{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

@@ -1,0 +1,81 @@
+<div class="ion-page fondo" id="main-content">
+  <ion-header>
+    <ion-toolbar color="warning">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Tops</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+
+    <ion-list>
+
+      <ion-item *ngIf="games.length > 0">
+        <ion-avatar slot="start">
+          <img [src]="games[0].imgSrc">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{games[0].email}}</h2>
+          <h3>{{games[0].time}}</h3>
+          <p>1°</p>
+        </ion-label>
+      </ion-item>
+
+      <br>
+
+      <ion-item *ngIf="games.length > 1">
+        <ion-avatar slot="start">
+          <img [src]="games[1].imgSrc">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{games[1].email}}</h2>
+          <h3>{{games[1].time}}</h3>
+          <p>2°</p>
+        </ion-label>
+      </ion-item>
+
+      <br>
+
+      <ion-item *ngIf="games.length > 2">
+        <ion-avatar slot="start">
+          <img [src]="games[2].imgSrc">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{games[2].email}}</h2>
+          <h3>{{games[2].time}}</h3>
+          <p>3°</p>
+        </ion-label>
+      </ion-item>
+
+      <br>
+
+      <ion-item *ngIf="games.length > 2">
+        <ion-avatar slot="start">
+          <img [src]="games[3].imgSrc">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{games[3].email}}</h2>
+          <h3>{{games[3].time}}</h3>
+          <p>4°</p>
+        </ion-label>
+      </ion-item>
+
+      <br>
+
+      <ion-item *ngIf="games.length > 2">
+        <ion-avatar slot="start">
+          <img [src]="games[4].imgSrc">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{games[4].email}}</h2>
+          <h3>{{games[4].time}}</h3>
+          <p>5°</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    
+  </ion-content>
+</div>

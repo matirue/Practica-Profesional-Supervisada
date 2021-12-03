@@ -1,0 +1,45 @@
+<ion-content fullscreen id="fondo">
+  <div class="form-login">
+    
+    <ion-title class="ion-text-center">
+      <h1>Aula Chat</h1>  
+    </ion-title>
+
+      <form [formGroup]="loginForm" novalidate (ngSubmit)="clickLogin()">    
+        
+        <div class="form-floating">
+          <input type="email" class="form-control " id="floatingInput" placeholder="name@example.com" formControlName="email" 
+          [(ngModel)]="loginData.email">
+          <label for="floatingInput">Correo electrónico</label>
+        </div>
+        <div class="error-input-message" *ngIf="getEmailControl().invalid && getEmailControl().touched">
+          <small class="ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.required">Campo obligatorio</small>
+          <small class="ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.email">Formato incorrecto</small>
+        </div>
+        <br>
+
+        <div class="form-floating">
+          <input type="password" class="form-control " id="floatingInput2" placeholder="name@example.com" formControlName="pass" 
+          [(ngModel)]="loginData.pass">
+          <label for="floatingInput2">Contraseña</label>
+        </div>
+        <div class="error-input-message" *ngIf="getPassControl().invalid && getPassControl().touched">
+          <small class="ion-padding-start ion-padding-end" *ngIf="getPassControl().errors.required">Campo obligatorio</small>
+          <small class="ion-padding-start ion-padding-end" *ngIf="getPassControl().errors.minlength">Mínimo 6 caracteres</small>          
+        </div>     
+        <br>
+        
+        <button type="button" expand="block" class="btn-user btn btn-warning" (click)="fillLogin(0)">Administrador</button>        
+        <button type="button" expand="block" class="btn-user btn btn-warning" (click)="fillLogin(1)">Invitado</button>        
+        <button type="button" expand="block" class="btn-user btn btn-warning" (click)="fillLogin(2)">Usuario</button>        
+        <button type="button" expand="block" class="btn-user btn btn-warning" (click)="fillLogin(3)">Anónimo</button>      
+        <button type="button" expand="block" class="btn-user btn btn-warning" (click)="fillLogin(4)">Tester</button>
+        
+        <button type="submit" expand="block" class="btn-login btn btn-danger" [disabled]="loginForm.invalid">Ingresar</button>
+  
+      </form>                                    
+          
+        
+         
+  </div>
+</ion-content>

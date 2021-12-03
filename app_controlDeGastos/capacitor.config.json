@@ -1,0 +1,6 @@
+{
+  "appId": "io.ionic.Gastos",
+  "appName": "Control de Gastos",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

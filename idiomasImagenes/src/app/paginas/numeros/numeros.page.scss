@@ -1,0 +1,60 @@
+.fondo{
+
+    background: rgb(90, 88, 34);
+    background: linear-gradient(0deg, 
+                                  rgb(89, 219, 115) 0%,
+                                  rgb(83, 223, 83) 17%,
+                                  rgb(212, 180, 74) 40%,
+                                  rgb(185, 204, 114) 61%,
+                                  rgb(233, 59, 59) 78%,
+                                  rgb(107, 64, 227) 100%);
+    height: 100%;
+    
+    // background-image: url("../../../assets/img/fondoNumero.jpg");
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // width: 100vw;
+    // height: 100vh;
+    // display: flex;
+    // align-items: center;
+    // text-align: center;
+    // justify-content: center;
+  }
+
+.numeros {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); 
+    
+  }
+
+  
+  .loadingContainerLogin{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(18, 160, 46, 0.015);
+    z-index: 299;
+  }
+  
+  .loadingLogin{
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 300;
+    animation: girar 2s linear infinite;
+    background-color: rgb(18, 160, 47);
+    border-radius: 100px;
+  }
+  @keyframes girar{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(-360deg);}
+  }

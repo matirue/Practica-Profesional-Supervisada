@@ -1,0 +1,79 @@
+<ion-content fullscreen color="tertiary">
+  <div class="form-register">
+    <br>
+
+    <form [formGroup]="registerForm" (ngSubmit)="registrarseClick()"> 
+      <!-- nombre -->
+    <div class="form-floating">
+      <input type="text" class="form-control " id="floatingInput" placeholder="Luis Emilio Recabarren" 
+      formControlName="name" 
+      [(ngModel)]="registerData.nombre">
+      <label for="floatingInput">Nombre</label>
+    </div>
+    <div class="" >
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getNameControl().errors?.required && getNameControl().touched">Campo obligatorio</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getNameControl().errors?.minlength && getNameControl().touched">Mínimo 2 caracteres</small>
+    </div>
+    <br>
+    <!-- email -->
+    <div class="form-floating">
+      <input type="email" class="form-control " id="floatingInput" placeholder="email@pps.com" 
+      formControlName="email" 
+      [(ngModel)]="registerData.loginData.email">
+      <label for="floatingInput">Correo Electrónico</label>
+    </div>
+    <div>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.required && getEmailControl().touched">Campo obligatorio</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getEmailControl().errors?.email && getEmailControl().touched">Formato incorrecto</small>
+    </div>
+
+    <br>
+    <!-- genero -->
+    <div class="form-floating">
+      <select class="form-select"  id="sele"
+        formControlName="genero" 
+        [(ngModel)]="registerData.genero">      
+        <option value="1">Femenino</option>
+        <option value="2">Masculino</option>
+        <option value="3">No Binario</option>
+      </select>
+      <label for="sele">Género</label>
+    </div>
+    <div>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getGeneroControl().errors?.required && getGeneroControl().touched">Campo obligatorio</small>
+    </div>
+    <br>
+    <!-- pass 01 -->
+    <div class="form-floating">
+      <input type="password" class="form-control " id="floatingInput2" placeholder="name@example.com" 
+      formControlName="pass1" 
+      [(ngModel)]="registerData.loginData.pass">
+      <label for="floatingInput2">Contraseña</label>
+    </div>
+    <div>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getPass1Control().errors?.required && getPass1Control().touched">Campo obligatorio</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getPass1Control().errors?.minlength && getPass1Control().touched">Mínimo 6 caracteres</small>
+    </div>
+<br>
+    <!-- pass 02 -->
+    <div class="form-floating">
+      <input type="password" class="form-control " id="floatingInput2" placeholder="name@example.com" 
+      formControlName="pass2" 
+      [(ngModel)]="passConfirmation">
+      <label for="floatingInput2">Repita la Contraseña</label>
+    </div>
+    <div>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getPass2Control().errors?.required  && getPass2Control().touched">Campo obligatorio</small>
+      <small class="error-input-message ion-padding-start ion-padding-end" *ngIf="getPass2Control().errors?.minlength  && getPass2Control().touched">Mínimo 6 caracteres</small>
+    </div>
+    <br>
+
+      <button type="submit" expand="block" color="" class="btn-register btn btn-success" [disabled]="registerForm.invalid">Registrarse</button>
+
+    </form>
+        
+      <button type="ion-button" expand="block" color="secondary" class="btn-login btn btn-info" (click)="goToLogin()">Ingresar</button>    
+    
+  </div>
+</ion-content>
+

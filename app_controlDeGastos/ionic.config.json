@@ -1,0 +1,7 @@
+{
+  "name": "app_cargaDeGastos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
